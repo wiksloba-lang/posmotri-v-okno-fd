@@ -93,10 +93,33 @@ ol {
     height: 100%;
   object-fit: cover;
 }
-.content__list-item {
-    gap: 30px; /*п3*/
+.content__list {
+    display: flex;
+    flex-direction: column;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    gap: 30px; /*Создайте отступы между элементами .content__list-item. Используйте свойство gap  для .content__list.*/
 }
-
-.content__list-item:last-child { /* Выбрать последний <p> в контейнере, если он точно последний */
-    background-color: yellow;
+.content__list-container {
+    display: flex;
+    flex-direction: column;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    gap: 30px; /*Создайте отступы между кнопкой Показать ещё и последней карточкой .content__list-item. Используйте свойство gap для .content__list-container.*/
+}
+.content__video-card {
+    display: flex;
+    flex-direction: row; /* Внутри контейнера .content__video-card расположите элементы  в одну строку и прижмите их к верху контейнера. */
+    flex-wrap: nowrap;
+    align-items: start;
+}
+.content__video-card-thumbnail {
+  min-width: 194px;
+  height: 103px;
+ object-fit: fill;
+  object-position: center; /*Задайте высоту и минимальную ширину для изображения .content__video-card-thumbnail. Используйте object-fit и object-position. */
+}
+.content__video-card-description-container {
+  width: 100%;
+  box-sizing: border-box;/* Важно: чтобы padding не увеличил ширину */ /*Сделайте так, чтобы .content__video-card-description-container занимал всё доступное пространство (не занятое картинкой). Вам поможет свойство flex-grow. */
 }
