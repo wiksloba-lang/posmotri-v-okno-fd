@@ -123,3 +123,53 @@ ol {
   width: 100%;
   box-sizing: border-box;/* Важно: чтобы padding не увеличил ширину */ /*Сделайте так, чтобы .content__video-card-description-container занимал всё доступное пространство (не занятое картинкой). Вам поможет свойство flex-grow. */
 }
+.search-form__fieldset-title {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px; /* отделяет тайтл от линии */
+  letter-spacing: 0%;
+  font-style: normal;
+  text-align: left;
+  border-bottom: 1px solid rgb(255, 255, 255)
+  }
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 75px;
+  font-weight: 800;
+  line-height: 0.95; 
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  text-align: left;
+}
+.content__accent {
+  color: #545050;
+}
+.content__card-link {
+  color: #fff;
+  text-decoration: none
+}
+.content__video-card-title {
+ text-transform: uppercase;
+  text-align: left;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 0.95; 
+  width: 186px;                /* Обязательно задайте ширину */
+  white-space: nowrap;        /* Запрещает перенос строк */
+  overflow: hidden;           /* Скрывает текст, выходящий за границы */
+  text-overflow: ellipsis;
+}
+.content__video-card-description {
+ text-align: left;
+  font-style: inherit;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 0.95; 
+  margin-top: 6px;
+  width: 186px;                /* Обязательно задайте ширину */
+  white-space: nowrap;        /* Запрещает перенос строк */
+  overflow: hidden;           /* Скрывает текст, выходящий за границы */
+  text-overflow: ellipsis;
+}
