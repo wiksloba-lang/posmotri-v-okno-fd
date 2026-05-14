@@ -66,6 +66,81 @@ ol {
     justify-content: space-between; /* 3. Распределяем свободное пространство между элементами */
     align-items: flex-start;      /* 4. Прижимаем к верхней части (вертикальная ось) */ 
 }
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px; /*Расположите чекбоксы в линию с помощью обёртки .search-form__checkbox-list. Используйте display: flex; и gap.*/
+} 
+.search-form__fieldset {
+  border: none; /* Сбросьте border у fieldset. */
+   /*  outline: none; /* Часто нужно убрать и синюю обводку при клике */
+   
+} 
+.search-form__fieldset-title {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0%;
+  font-style: normal;
+  text-align: left;
+  margin-bottom: 5px;
+  
+  }
+.search-form__label {/*обёртки для поискового инпута и чекбоксов*/
+  display: flex;/*Расположите содержимое .search-form__label в строку с помощью сетки флекс.*/
+  align-items: center; /*Центрируйте содержимое внутри .search-form__label по вертикальной оси, используя свойство align-items.*/
+  width: fit-content;
+  gap: 5px;
+} 
+.search-form__textfield {/*текстовое поле ввода*/
+  width: 225px;
+  font-style: normal;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 1.2;
+  font-style: normal;
+  text-align: left;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  border-top: 1px solid rgb(255, 255, 255);
+  background-color: transparent;
+  color: #fff;
+  appearance: none; /* Так в разных браузерах будут нужные вам стили.*/
+} 
+.search-form__textfield::placeholder {/*подсказка в текстовое поле ввода*/
+color: rgb(255 255 255 / 0.7);
+} 
+.search-form__textfiel:focus {/*подсказка в текстовое поле ввода в фокусе*/
+outline: none;
+} 
+.search-form__label:has(:focus-visible)  {/*лейбл вокруг текстовое поле ввода в фокусе*/
+outline: solid 1px  #fff;
+} 
+.search-form__pseudo-checkbox  {/*псевдочекбокс*/
+width: 19px;
+height: 19px;
+border: 1px solid rgb(255, 255, 255);
+ background-color: transparent;
+ padding: 1px;/*внутренний отступ*/
+} 
+.search-form__pseudo-checkbox::after  {/*псевдочекбокс в нажатии*/
+content: ""; /*без него псевдоэлемент отображаться не будет.*/
+ display: block; /* Делаем элемент блочным */
+  background-color: #ffffff; /* Устанавливаем белый цвет фона */
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* скрыть закрашенный элемент — сделайте его полностью прозрачным */
+} 
+.search-form__checkbox:checked::after {/*псевдочекбокс в нажатии*/
+   opacity: 1;
+} 
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline; /* Подчёркивание при наведении */
+}
+/*.search-form__pseudo-checkbox:has(:focus-visible)  Когда чекбокс в фокусе — добавьте границу вокруг с использованием outline{
+outline: solid 1px  #10de4a;
+} */
   .content__details {
    display: flex; 
    max-width: 399px;
@@ -123,16 +198,7 @@ ol {
   width: 100%;
   box-sizing: border-box;/* Важно: чтобы padding не увеличил ширину */ /*Сделайте так, чтобы .content__video-card-description-container занимал всё доступное пространство (не занятое картинкой). Вам поможет свойство flex-grow. */
 }
-.search-form__fieldset-title {
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 30px; /* отделяет тайтл от линии */
-  letter-spacing: 0%;
-  font-style: normal;
-  text-align: left;
-  border-bottom: 1px solid rgb(255, 255, 255)
-  }
+
 .title {
   font-family: 'Oswald', sans-serif;
   font-size: 75px;
@@ -173,3 +239,12 @@ ol {
   overflow: hidden;           /* Скрывает текст, выходящий за границы */
   text-overflow: ellipsis;
 }
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
