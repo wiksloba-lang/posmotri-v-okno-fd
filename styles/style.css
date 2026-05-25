@@ -3,11 +3,9 @@
 *::after {
   box-sizing: border-box;
 }
-
 html {
   block-size: 100%;
 }
-
 h1,
 h2,
 h3,
@@ -21,25 +19,20 @@ fieldset {
   margin: 0;
   padding: 0;
 }
-
 ul,
 ol {
   list-style: none;
 }
-
 /* Кастомный скроллбар */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-track {
   background: rgb(217 217 217 / 10%);
 }
-
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #D9D9D9;
 }
-
 .page {
   display: flex;
   inline-size: 1200px;
@@ -56,100 +49,114 @@ ol {
 .content {
   display: flex; 
   flex-direction: row;    /* Располагаем элементы в строку (по умолчанию) */
+  align-content: center;
   align-items: flex-end;  /* Прижимаем элементы к нижней границе */
   width: 1140px; /* Задать ширину .content и отступы между его элементами. */
   gap: 30px;
 }
   .search-form {
-    display: flex;                /* 1. Включаем Flexbox */
-    flex-direction: row;          /* 2. Элементы в строку (по умолчанию) */
-    justify-content: space-between; /* 3. Распределяем свободное пространство между элементами */
-    align-items: flex-start;      /* 4. Прижимаем к верхней части (вертикальная ось) */ 
+  display: flex;
+  justify-content: space-between;
+}
+.search-form__fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 5px;
+}
+.search-form__fieldset:nth-child(2) {
+  align-self: flex-start;
+}
+.search-form__fieldset-title {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.search-form__label {
+  width: fit-content;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+.search-form__label:has(:focus) {
+  outline: none;
+}
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+}
+.search-form__label:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+.search-form__label
+.search-form__textfield {
+  inline-size: 225px;
+  background-color: transparent;
+  border: none;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #FFF;
+  color: rgba(255, 255, 255, 0.70);
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  appearance: none;
+}
+.search-form__textfield:focus {
+  outline: none;
+}
+.search-form__textfield:active {
+  outline: 1px solid #fff;
+  outline-offset: -1px;
 }
 .search-form__checkbox-list {
   display: flex;
-  gap: 15px; /*Расположите чекбоксы в линию с помощью обёртки .search-form__checkbox-list. Используйте display: flex; и gap.*/
-} 
-.search-form__fieldset {
-  border: none; /* Сбросьте border у fieldset. */
-   /*  outline: none; /* Часто нужно убрать и синюю обводку при клике */
-   
-} 
-.search-form__fieldset-title {
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-style: normal;
-  text-align: left;
-  margin-bottom: 5px;
-  
-  }
-.search-form__label {/*обёртки для поискового инпута и чекбоксов*/
-  display: flex;/*Расположите содержимое .search-form__label в строку с помощью сетки флекс.*/
-  align-items: center; /*Центрируйте содержимое внутри .search-form__label по вертикальной оси, используя свойство align-items.*/
-  width: fit-content;
-  gap: 5px;
-} 
-.search-form__textfield {/*текстовое поле ввода*/
-  width: 225px;
-  font-style: normal;
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 100%;
-  letter-spacing: 1.2;
-  font-style: normal;
-  text-align: left;
-  border-bottom: 1px solid rgb(255, 255, 255);
-  border-top: 1px solid rgb(255, 255, 255);
-  background-color: transparent;
-  color: #fff;
-  appearance: none; /* Так в разных браузерах будут нужные вам стили.*/
-} 
-.search-form__textfield::placeholder {/*подсказка в текстовое поле ввода*/
-color: rgb(255 255 255 / 0.7);
-} 
-.search-form__textfiel:focus {/*подсказка в текстовое поле ввода в фокусе*/
-outline: none;
-} 
-.search-form__label:has(:focus-visible)  {/*лейбл вокруг текстовое поле ввода в фокусе*/
-outline: solid 1px  #fff;
-} 
-.search-form__pseudo-checkbox  {/*псевдочекбокс*/
-width: 19px;
-height: 19px;
-border: 1px solid rgb(255, 255, 255);
- background-color: transparent;
- padding: 1px;/*внутренний отступ*/
-} 
-.search-form__pseudo-checkbox::after  {/*псевдочекбокс в нажатии*/
-content: ""; /*без него псевдоэлемент отображаться не будет.*/
- display: block; /* Делаем элемент блочным */
-  background-color: #ffffff; /* Устанавливаем белый цвет фона */
-  width: 100%;
-  height: 100%;
-  opacity: 0; /* скрыть закрашенный элемент — сделайте его полностью прозрачным */
-} 
-.search-form__checkbox:checked::after {/*псевдочекбокс в нажатии*/
-   opacity: 1;
-} 
-.search-form__label:hover .search-form__label-text {
-  text-decoration: underline; /* Подчёркивание при наведении */
+  gap: 15px;
 }
-/*.search-form__pseudo-checkbox:has(:focus-visible)  Когда чекбокс в фокусе — добавьте границу вокруг с использованием outline{
-outline: solid 1px  #10de4a;
-} */
+.search-form__pseudo-checkbox {
+  inline-size: 19px;
+  block-size: 19px;
+  border: 1px solid #fff;
+  position: relative;
+}
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  position: absolute;
+  margin: 1px;
+  content: "";
+  inline-size: 15px;
+  block-size: 15px;
+  background-color: #fff;
+}
+.search-form__submit-button {
+  align-self: end;
+  inline-size: 194px;
+  block-size: 34px;
+}
   .content__details {
    display: flex; 
    max-width: 399px;
    max-height: 534px;
    gap: 26px;
    flex-direction: column;
-	flex-wrap: nowrap;
+	 /*flex-wrap: nowrap;
 	justify-content: flex-start;
-	align-items: stretch;
+	align-items: stretch;*/
+}
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 75px;
+  font-weight: 800;
+  line-height: 0.95; 
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+.content__accent {
+  color: #545050;
 }
 .content__list-container {
     /*display: flex; */
@@ -157,7 +164,6 @@ outline: solid 1px  #10de4a;
     overflow: auto; /* Добавляет прокрутку, если контент не помещается */
     /* gap: 30px;*/
 }
-
 .result__video-container {
    width: 711px;
    height: 386px;
@@ -167,20 +173,6 @@ outline: solid 1px  #10de4a;
   width: 100%;
     height: 100%;
   object-fit: cover;
-}
-.content__list {
-    display: flex;
-    flex-direction: column;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    gap: 30px; /*Создайте отступы между элементами .content__list-item. Используйте свойство gap  для .content__list.*/
-}
-.content__list-container {
-    display: flex;
-    flex-direction: column;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    gap: 30px; /*Создайте отступы между кнопкой Показать ещё и последней карточкой .content__list-item. Используйте свойство gap для .content__list-container.*/
 }
 .content__video-card {
     display: flex;
@@ -197,19 +189,6 @@ outline: solid 1px  #10de4a;
 .content__video-card-description-container {
   width: 100%;
   box-sizing: border-box;/* Важно: чтобы padding не увеличил ширину */ /*Сделайте так, чтобы .content__video-card-description-container занимал всё доступное пространство (не занятое картинкой). Вам поможет свойство flex-grow. */
-}
-
-.title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 75px;
-  font-weight: 800;
-  line-height: 0.95; 
-  letter-spacing: 0%;
-  text-transform: uppercase;
-  text-align: left;
-}
-.content__accent {
-  color: #545050;
 }
 .content__card-link {
   color: #fff;
@@ -248,3 +227,68 @@ outline: solid 1px  #10de4a;
   clip-path: inset(50%);
   white-space: nowrap;
 } 
+.button {
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 1.2; 
+  cursor: pointer; /* на кликабельные элементы */
+} 
+.more-button {
+   Width: 100%;
+  Height: 34px; /* не работает? */
+}
+.button:hover {
+  text-decoration: underline;
+  }
+  .button:active {
+    background-color:#545050;
+  }
+  .button:focus {
+  outline: none;
+}
+  .button:focus-visible {
+    outline: 1px solid white;
+}
+/* ----------------------------------------------- */
+
+.content__list {
+    display: flex;
+    flex-direction: column;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    gap: 30px; /*Создайте отступы между элементами .content__list-item. Используйте свойство gap  для .content__list.*/
+}
+.content__list-item {
+  box-sizing: border-box;
+  width: 390px;
+  height: 103px;
+  padding-right: 0;
+  padding-left: 0;
+}
+.content__list-item:active {
+    background-color:#545050;
+  }
+.content__card-link:active {
+  background: #545050;
+}
+.content__card-link:focus {
+  outline: none;
+}
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 0;
+}
+.content__card-link,
+.content__video-card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  overflow: hidden;
+ }
+ 
