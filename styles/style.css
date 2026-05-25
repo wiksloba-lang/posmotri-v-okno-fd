@@ -183,8 +183,8 @@ ol {
   box-sizing: border-box;
   width: 390px;
   height: 103px;
-  padding-right: 0;
-  padding-left: 0;
+  padding-right: 3px;
+  padding-left: 3px;
 }
 .content__list-item:active {
   background-color:#545050;
@@ -244,7 +244,7 @@ ol {
   font-style: inherit;
   font-weight: 400;
   font-size: 18px;
-  line-height: 0.95; 
+  line-height: 0.95;
   margin-top: 6px;
   width: 186px;/* Обязательно задайте ширину */
   white-space: nowrap;/* Запрещает перенос строк */
@@ -285,5 +285,8 @@ ol {
   outline: none;
 }
   .button:focus-visible {
-    outline: 1px solid white;
+  outline: 1px solid white;
+}
+.result__video-container .content__list-container {
+  position: relative;
 }
