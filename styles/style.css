@@ -58,11 +58,14 @@ ol {
 .result {
   display: flex;
   flex-direction: column;
-}
+  gap: 20px;
+  margin-bottom: 3px;
+  }
 .result__video-container {
    width: 711px;
    height: 386px;
-   margin-bottom: 16px; /* добавьте внешний отступ снизу*/
+   /* margin-bottom: 16px; добавьте внешний отступ снизу*/
+  position: relative; 
 }
 .result__video {
   width: 100%;
@@ -151,19 +154,18 @@ ol {
    display: flex;
    justify-content: flex-start;
    min-width: 399px;
-   max-height: 534px;
-   gap: 26px;
+   gap: 25px;
    flex-direction: column;
-   flex-grow: 1 1 30%;
-	 /*flex-wrap: nowrap;
+   	 /*flex-wrap: nowrap;
 	align-items: stretch;*/
   }
 .title {
   font-family: 'Oswald', sans-serif;
   font-size: 75px;
   font-weight: 700;
-  line-height: 0.95;
+  line-height: 94%;
   text-transform: uppercase;
+  margin-top: 5px;
 }
 .content__accent {
   color: #545050;
@@ -171,9 +173,11 @@ ol {
 .content__list-container {
   display: flex;
   flex-direction: column;
+  width: 399px;
   height: 298px; /* Задайте нужную жёсткую высоту (можно использовать px, vh или rem) */
   overflow-y: auto; /* Добавляет вертикальный скролл только при переполнении контента *//*display: flex; */
   gap: 30px; /*не работает*/
+  position: relative; 
 }
 .content__list {
     display: flex;
@@ -236,12 +240,12 @@ ol {
 }
 .content__video-card-description {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden; 
   line-height: 16.2px;
   width: 196px;/* Обязательно задайте ширину */
-  white-space: nowrap;/* Запрещает перенос строк */
-  overflow: hidden;/* Скрывает текст, выходящий за границы */
   text-overflow: ellipsis;
 }
 .visually-hidden {
@@ -254,6 +258,9 @@ ol {
   white-space: nowrap;
 } 
 .button {
+  display: flex;
+  justify-content: center; /* выравнивание по горизонтали */
+  align-items: center;    /* выравнивание по вертикали */
   min-height: 34px;
   background-color: transparent;
   border: 1px solid #fff;
@@ -284,6 +291,4 @@ ol {
   .button:focus-visible {
   outline: 1px solid white;
 }
-.result__video-container .content__list-container {
-  position: relative;
-}
+
